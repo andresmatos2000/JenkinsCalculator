@@ -1,3 +1,4 @@
+import java.util.Random;
 
 class Calculator {
 
@@ -38,8 +39,10 @@ class Calculator {
     .
     etc
      */
-    int fibonacciNumberFinder(int n){
-        return 0;
+    int fibonacciNumberFinder(int n) {
+        if (n <= 1)
+            return n;
+        return fibonacciNumberFinder(n-1) + fibonacciNumberFinder(n-2);
     }
 
 
@@ -51,7 +54,7 @@ class Calculator {
     if int a = 16 then this method returns: 10000
      */
     String intToBinaryNumber(int n){
-        return null;
+        return Integer.toBinaryString(n);
     }
 
     /*
@@ -64,7 +67,14 @@ class Calculator {
      */
     String createUniqueID(String n){
 
-        return null;
+        String alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
+        StringBuilder randomWord = new StringBuilder();
+        Random rnd = new Random();
+        while (randomWord.length() < 18) { // length of the random string.
+            int index = (int) (rnd.nextFloat() * alphabet.length());
+            randomWord.append(alphabet.charAt(index));
+        }
+        return n + randomWord.toString();
     }
 
 
